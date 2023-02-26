@@ -7,4 +7,8 @@ def carre(num):
 nombre =[1, 2, 3, 4]
 for item in map(carre, nombre):
     list(map(carre,nombre))
-    print(item) 
+    print(item)
+
+    
+
+
