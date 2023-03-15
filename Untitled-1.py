@@ -17,18 +17,20 @@ class Player():
         if type(point_attaque) is not int:
             raise TypeError("Entrer un  nombre")
         if type(arme) is not Weapon:
-            raise TypeError("L'arme n'est pas une arme Abaigraiiii")
+            raise TypeError("L'arme n'est pas une arme")
         self.nom = nom
         self.arme = arme
         self.point_de_vie = point_de_vie
         self.point_attaque = point_attaque
 
-    def presenter(self):
+    def __repr__ (self):
         print(f"Joueur : {self.nom}\nPoint de vie : {self.point_de_vie}\nPoint d'attaque : {self.point_attaque}\nLe type de l'arme choisi est : {self.arme.type_de_arme}")
+
+  
+
     def faceToFace(self,joueur2):
         joueur2.point_de_vie -= 1
         print(f"J'attaque : {joueur2.nom}\n il lui reste : {joueur2.point_de_vie}")
-
 
 
 class Weapon():
@@ -41,16 +43,27 @@ class Weapon():
     def presenteArme(self):
         print(f"Le nom de l'arme est : {self.nomArme}\nDegats de l'arme est : {self.degatsDeArme}")
 
-    def attaquer():
-        pass
+    def attaquer(self,Joueur3):
+
+        if self.type_de_arme == "rapproché":
+            self.faceToFace
+
+        elif self.type_de_arme == "distance":
+            Joueur3.point_de_vie =   m
+
+
+
+
+
 
 
 arme1 = Weapon("couteau",5,"raproché")
 jeu = Player("fred",5,3,arme1)
-jean = Player("AZERTY",4,5,arme1)
+print(Player(jeu))
+# jeu.presenter()
 
-jeu.presenter()
-jean.presenter()
+# jean.presenter()
+# jean = Player("AZERTY",4,5,arme1)
 
     
 
@@ -83,14 +96,6 @@ jean.presenter()
 #         tab[i1], tab[i2] = tab[i2], tab[i1]
 #         return tab
 
-
-
-# def inverse(tab, taille, i, j):
-#     if i >= taille or j >= taille:
-#         return -1 # indices invalides
-#     else:
-#         tab[i], tab[j] = tab[j], tab[i] # échange des éléments
-#         return tab
 
 
 
