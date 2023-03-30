@@ -1,4 +1,5 @@
 import random
+import json
 
 def randomword():
     tab = ["bonjour", "salut", "bonsoir"]
@@ -12,6 +13,7 @@ if __name__ == '__main__':
     flag = False
     stargame = True
     mot = randomword()
+    email = input("Entrez votre adresse email : ")
     motcache = ["*"]*len(mot)
     print("".join(motcache))
 
@@ -19,12 +21,21 @@ if __name__ == '__main__':
     
 
     while stargame:
+        with open("./JeuEtoile.json", "r") as file:
+            files = file.read()
+            players = json.load(files)
+            for player in players:            
+                    if player["email"] == email:
+                        print("vous avez déjà")
+
+
 
         car = input("\nEntrez un caractère : ")
 
         for i in range(len(mot)):
             if mot[i] == car:
               motcache[i] = car
+              flag = True
                     
 
         if flag:
@@ -43,11 +54,3 @@ if __name__ == '__main__':
         if output == mot:
             stargame = False
         
-
-
-    #     if mot.count(car) > 1:
-    #         print("\nLe caractère est présent plusieurs fois dans le mot.")
-    #     else:
-    #         print("\nLe caractère se trouve à la position", mot.count(car)+1, "dans le mot.")
-    # else:
-    #     print("\nLe caractère n'est pas présent dans le mot.")
